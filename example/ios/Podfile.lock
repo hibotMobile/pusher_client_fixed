@@ -1,0 +1,37 @@
+PODS:
+  - Flutter (1.0.0)
+  - NWWebSocket (0.5.3)
+  - pusher_client (0.0.2):
+    - Flutter
+    - PusherSwiftWithEncryption (~> 10.1.3)
+  - PusherSwiftWithEncryption (10.1.3):
+    - NWWebSocket (~> 0.5.3)
+    - TweetNacl (~> 1.0.0)
+  - TweetNacl (1.0.2)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - pusher_client (from `.symlinks/plugins/pusher_client/ios`)
+
+SPEC REPOS:
+  trunk:
+    - NWWebSocket
+    - PusherSwiftWithEncryption
+    - TweetNacl
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  pusher_client:
+    :path: ".symlinks/plugins/pusher_client/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  NWWebSocket: 05fc4419102f33934f87157d70228837e327064f
+  pusher_client: 662f736919955128e7447e43b9462c0b5513469e
+  PusherSwiftWithEncryption: c5f6a939e4e09db025ef0ac9f6f2c00615a129e0
+  TweetNacl: 3abf4d1d2082b0114e7a67410e300892448951e6
+
+PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
+
+COCOAPODS: 1.12.1
