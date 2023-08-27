@@ -33,7 +33,6 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
                 "Puser Client userUnsubscribed",
                 "userUnsubscribed: channelName=$channelName, userId=$userId"
             )
-
             (user.id != null){
                 this.onEvent(
                     PusherEvent(
