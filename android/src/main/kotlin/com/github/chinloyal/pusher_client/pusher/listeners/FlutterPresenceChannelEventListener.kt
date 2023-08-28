@@ -16,7 +16,7 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
 
     override fun onUsersInformationReceived(channelName: String, users: MutableSet<User>) {
         Log.d(
-            "Puser Client onUsersInformationReceived",
+            "Pusher Client onUsersInformationReceived",
             "onUsersInformationReceived: channelName=$channelName, userId=${users}"
         )
         this.onEvent(
@@ -34,7 +34,7 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
     override fun userUnsubscribed(channelName: String, user: User) {
         if (user != null) {
             Log.d(
-                "Puser Client userUnsubscribed",
+                "Pusher Client userUnsubscribed",
                 "userUnsubscribed: channelName=$channelName, userId=${user.id}"
             )
             if (user.id != null) {
@@ -49,17 +49,17 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
                     )
                 )
             } else {
-                Log.d("Error Pusher Client", "userUnsubscribed: user es nulo")
+                Log.d("Error Pusher Client userUnsubscribed", "userUnsubscribed: user es nulo")
             }
         } else {
-            Log.d("Error Pusher Client", "userUnsubscribed: user es nulo")
+            Log.d("Error Pusher Client userUnsubscribed", "userUnsubscribed: user es nulo")
         }
 
     }
 
     override fun userSubscribed(channelName: String, user: User) {
         Log.d(
-            "Puser Client userSubscribed",
+            "Pusher Client userSubscribed",
             "userSubscribed: channelName=$channelName, userId=${user}"
         )
         this.onEvent(
@@ -76,7 +76,7 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
 
     override fun onAuthenticationFailure(message: String, e: Exception) {
         Log.d(
-            "Puser Client onAuthenticationFailure",
+            "Pusher Client onAuthenticationFailure",
             "onAuthenticationFailure: message=$message, e=${e}"
         )
         PusherService.errorLog(message)
@@ -85,7 +85,7 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
 
     override fun onSubscriptionSucceeded(channelName: String) {
         Log.d(
-            "Puser Client onSubscriptionSucceeded",
+            "Pusher Client onSubscriptionSucceeded",
             "onSubscriptionSucceeded: channelName=$channelName"
         )
         PusherService.debugLog("[PRESENCE] Subscribed: $channelName")
