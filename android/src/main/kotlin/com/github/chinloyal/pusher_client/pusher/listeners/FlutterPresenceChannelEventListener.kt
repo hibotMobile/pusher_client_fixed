@@ -15,6 +15,10 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
     }
 
     override fun onUsersInformationReceived(channelName: String, users: MutableSet<User>) {
+        Log.d(
+            "Puser Client onUsersInformationReceived",
+            "onUsersInformationReceived: channelName=$channelName, userId=${users}"
+        )
         this.onEvent(
             PusherEvent(
                 mapOf(
@@ -31,9 +35,9 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
         if (user != null) {
             Log.d(
                 "Puser Client userUnsubscribed",
-                "userUnsubscribed: channelName=$channelName, userId=$userId"
+                "userUnsubscribed: channelName=$channelName, userId=${user.id}"
             )
-            (user.id != null){
+            if (user.id != null) {
                 this.onEvent(
                     PusherEvent(
                         mapOf(
@@ -44,7 +48,7 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
                         )
                     )
                 )
-            }else{
+            } else {
                 Log.d("Error Pusher Client", "userUnsubscribed: user es nulo")
             }
         } else {
@@ -54,6 +58,10 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
     }
 
     override fun userSubscribed(channelName: String, user: User) {
+        Log.d(
+            "Puser Client userSubscribed",
+            "userSubscribed: channelName=$channelName, userId=${user}"
+        )
         this.onEvent(
             PusherEvent(
                 mapOf(
@@ -67,11 +75,19 @@ class FlutterPresenceChannelEventListener : FlutterBaseChannelEventListener(),
     }
 
     override fun onAuthenticationFailure(message: String, e: Exception) {
+        Log.d(
+            "Puser Client onAuthenticationFailure",
+            "onAuthenticationFailure: message=$message, e=${e}"
+        )
         PusherService.errorLog(message)
         if (PusherService.enableLogging) e.printStackTrace()
     }
 
     override fun onSubscriptionSucceeded(channelName: String) {
+        Log.d(
+            "Puser Client onSubscriptionSucceeded",
+            "onSubscriptionSucceeded: channelName=$channelName"
+        )
         PusherService.debugLog("[PRESENCE] Subscribed: $channelName")
 
         this.onEvent(

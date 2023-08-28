@@ -26,13 +26,12 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 33
-    ndkVersion "25.2.9519653"
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 16
     }
     lintOptions {
         disable 'InvalidPackage'
