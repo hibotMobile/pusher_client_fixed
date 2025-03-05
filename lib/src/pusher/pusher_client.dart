@@ -21,12 +21,24 @@ class PusherClient extends StreamHandler {
       const MethodChannel('com.github.chinloyal/pusher_client');
   static const classId = 'PusherClient';
 
-  static PusherClient? _singleton;
+  //static PusherClient? _singleton;
   void Function(ConnectionStateChange?)? _onConnectionStateChange;
   void Function(ConnectionError?)? _onConnectionError;
   String? _socketId;
 
-  PusherClient._(
+  PusherClient(
+      String appKey,
+      PusherOptions options, {
+        bool enableLogging = true,
+        bool autoConnect = true,
+      }) {
+    final initArgs = InitArgs(enableLogging: enableLogging);
+    _init(appKey, options, initArgs);
+
+    if (autoConnect) connect();
+  }
+  
+  /*PusherClient._(
     String appKey,
     PusherOptions options, {
     bool enableLogging = true,
@@ -54,7 +66,7 @@ class PusherClient extends StreamHandler {
     if (autoConnect) _singleton!.connect();
 
     return _singleton!;
-  }
+  }*/
 
   Future _init(String appKey, PusherOptions options, InitArgs initArgs) async {
     registerListener(classId, _eventHandler);
